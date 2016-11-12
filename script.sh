@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# pre-req: (ja ok se usar vagrant)
-# redes configuradas
-# chave ssh autorizada no root
-# repositorio http://download.ceph.com/rpm-jewel/el7/noarch/ceph-release-1-0.el7.noarch.rpm instalado nas vms
+# pre-req: (Already satisfied if using Vagrantfile)
+# - Configured networks
+# - pub key into vms 
+# - repo http://download.ceph.com/rpm-jewel/el7/noarch/ceph-release-1-0.el7.noarch.rpm installed
 
 fsid=$(uuidgen)
 
