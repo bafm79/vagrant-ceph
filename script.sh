@@ -65,24 +65,25 @@ journal_size: 5120
 #radosgw_s3_auth_use_keystone: "true"
 #radosgw_nss_db_path: /var/lib/ceph/radosgw/ceph-radosgw.{{ ansible_hostname }}/nss
 
-' >> ceph-ansible/group_vars/all
+' >> ceph-ansible/group_vars/all.yml
 
 
 echo '
 monitor_secret: "{{ monitor_keyring.stdout }}"
 cephx: true
-' >> ceph-ansible/group_vars/mons
+' >> ceph-ansible/group_vars/mons.yml
+
 
 
 echo '
 osd_auto_discovery: true
 journal_collocation: true
 cephx: true
-' >> ceph-ansible/group_vars/osds
+' >> ceph-ansible/group_vars/osds.yml
 
 
 echo '
 cephx: true
-' >> ceph-ansible/group_vars/rgws
+' >> ceph-ansible/group_vars/rgws.yml
 
 
