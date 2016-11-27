@@ -12,8 +12,8 @@ git clone https://github.com/ceph/ceph-ansible.git
 echo '
 [mons]
 192.168.0.101
-192.168.0.102
-192.168.0.103
+#192.168.0.102
+#192.168.0.103
 
 [osds]
 192.168.0.111
@@ -28,13 +28,13 @@ echo '
 
 ' > hosts.ceph
 
-ansible all -m ping -u root  -i hosts.ceph
+#ansible all -m ping -u root  -i hosts.ceph
 
 cp ceph-ansible/site.yml.sample ceph-ansible/site.yml
-cp ceph-ansible/group_vars/all.sample ceph-ansible/group_vars/all
-cp ceph-ansible/group_vars/mons.sample ceph-ansible/group_vars/mons
-cp ceph-ansible/group_vars/osds.sample ceph-ansible/group_vars/osds
-cp ceph-ansible/group_vars/rgws.sample ceph-ansible/group_vars/rgws
+cp ceph-ansible/group_vars/all.yml.sample ceph-ansible/group_vars/all.yml
+cp ceph-ansible/group_vars/mons.yml.sample ceph-ansible/group_vars/mons.yml
+cp ceph-ansible/group_vars/osds.yml.sample ceph-ansible/group_vars/osds.yml
+cp ceph-ansible/group_vars/rgws.yml.sample ceph-ansible/group_vars/rgws.yml
 
 echo ' 
 fetch_directory: fetch/
@@ -77,12 +77,12 @@ cephx: true
 echo '
 osd_auto_discovery: true
 journal_collocation: true
+cephx: true
 ' >> ceph-ansible/group_vars/osds
 
 
 echo '
-# ??
-
+cephx: true
 ' >> ceph-ansible/group_vars/rgws
 
 
