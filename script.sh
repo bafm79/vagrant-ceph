@@ -3,7 +3,7 @@
 # pre-req: (Already satisfied if using Vagrantfile)
 # - Configured networks
 # - pub key into vms 
-# - repo http://download.ceph.com/rpm-jewel/el7/noarch/ceph-release-1-0.el7.noarch.rpm installed
+# - repo http://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm installed
 
 fsid=$(uuidgen)
 
@@ -12,8 +12,8 @@ git clone https://github.com/ceph/ceph-ansible.git
 echo '
 [mons]
 192.168.0.101
-#192.168.0.102
-#192.168.0.103
+192.168.0.102
+192.168.0.103
 
 [osds]
 192.168.0.111
@@ -23,8 +23,8 @@ echo '
 #[mdss]
 
 
-#[rgws]
-#192.168.0.101
+[rgws]
+192.168.0.101
 
 ' > hosts.ceph
 
@@ -52,10 +52,10 @@ cluster_network: 7.7.7.0/24
 osd_mkfs_type: xfs
 journal_size: 5120
 
-#radosgw_frontend: civetweb 
-#radosgw_civetweb_port: 443 
-#radosgw_civetweb_bind_ip: 0.0.0.0
-#radosgw_civetweb_num_threads: 50
+radosgw_frontend: civetweb 
+radosgw_civetweb_port: 443 
+radosgw_civetweb_bind_ip: 0.0.0.0
+radosgw_civetweb_num_threads: 50
 #radosgw_keystone: true
 #radosgw_keystone_url: http://10.200.187.7:35357
 #radosgw_keystone_admin_token: password

@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 
   (1..3).each do |i|
 	    config.vm.define :"mon#{i}" do |config|
-	        config.vm.box = "bento/centos-7.2"
+	        config.vm.box = "centos/7"
 	        config.vm.network :private_network, ip: "192.168.0.10#{i}"
 	        config.vm.hostname = "ceph-mon#{i}"
 	        config.vm.provider :virtualbox do |v|
@@ -24,14 +24,14 @@ Vagrant.configure("2") do |config|
                               echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
 			      mkdir -p /root/.ssh/
                               echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
-			      yum install -y http://download.ceph.com/rpm-jewel/el7/noarch/ceph-release-1-0.el7.noarch.rpm 
+			      yum install -y http://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm 
                          SHELL
                 end
 	    end
   end
   (1..3).each do |i|
             config.vm.define :"osd#{i}" do |config|
-                config.vm.box = "bento/centos-7.2"
+                config.vm.box = "centos/7"
                 config.vm.network :private_network, ip: "192.168.0.11#{i}"
                 config.vm.network :private_network, ip: "7.7.7.10#{i}"
                 config.vm.hostname = "ceph-osd#{i}"
@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
 			      echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
 			      mkdir -p /root/.ssh/
 			      echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
-			      yum install -y http://download.ceph.com/rpm-jewel/el7/noarch/ceph-release-1-0.el7.noarch.rpm 
+			      yum install -y http://download.ceph.com/rpm-luminous/el7/noarch/ceph-release-1-1.el7.noarch.rpm
 			 SHELL
 		end
             end
